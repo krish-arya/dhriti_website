@@ -1,0 +1,314 @@
+:root {
+  /* Quiet therapy room: beige walls, wood, clay, sage, warm light */
+  --paper: #f4ece1;
+  --paper-2: #ebdfcd;
+  --sand: #d8c6ad;
+  --clay: #b9785a;
+  --clay-deep: #8a4f37;
+  --clay-light: #d9a284;
+  --sage: #8a9a7b;
+  --sage-deep: #556449;
+  --sage-light: #aab79a;
+  --wood: #7a5a3f;
+  --ink: #2e2822;
+  --ink-soft: #564c42;
+  --ink-muted: #7a6d60;
+  --deep: #2f3129;
+  --on-deep: #efe5d6;
+  --on-deep-soft: #cbc2b2;
+
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-body: var(--font-dm-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.27 0 0 0 0 0.2 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Paper texture across the whole page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: var(--grain);
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 100;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 60;
+  text-wrap: balance;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--clay-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--clay-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: clamp(4.5rem, 10vw, 8.5rem);
+  scroll-margin-top: 60px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--clay-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.eyebrow--light {
+  color: var(--clay-light);
+}
+
+/* ---------- Buttons & links ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 52px;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  background: var(--clay-deep);
+  color: #fff8ef;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  box-shadow: 0 14px 28px -16px rgba(110, 60, 35, 0.7);
+  transition: background-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+}
+
+.button span[aria-hidden] {
+  transition: transform 300ms ease;
+}
+
+.button:hover {
+  background: #7a432d;
+  transform: translateY(-1px);
+  box-shadow: 0 18px 32px -16px rgba(110, 60, 35, 0.75);
+}
+
+.button:hover span[aria-hidden] {
+  transform: translateX(3px);
+}
+
+.button--small {
+  min-height: 42px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.92rem;
+}
+
+.button--light {
+  background: #f6ede0;
+  color: var(--ink);
+  box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.6);
+}
+
+.button--light:hover {
+  background: #fff7ec;
+}
+
+.link-quiet {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  padding-block: 0.3rem;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  transition: background-size 350ms ease, color 250ms ease;
+}
+
+.link-quiet:hover {
+  color: var(--clay-deep);
+  background-size: 40% 1px;
+}
+
+.link-quiet--light {
+  color: var(--on-deep);
+}
+
+.link-quiet--light:hover {
+  color: #fff;
+}
+
+/* ---------- Accessibility helpers ---------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Reveal on scroll (only when JS is running) ---------- */
+
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(6px);
+  transition:
+    opacity 1200ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 1200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.js-reveal [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Headings: the block stays put while each word softens in */
+.js-reveal [data-reveal="words"],
+.js-reveal [data-reveal="frame"] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.word {
+  display: inline-block;
+}
+
+.js-reveal [data-reveal="words"] .word {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(0.35em);
+  transition:
+    opacity 1300ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 1300ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 1300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--wd, 0ms);
+}
+
+.js-reveal [data-reveal="words"][data-revealed] .word {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
