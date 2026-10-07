@@ -23,7 +23,8 @@ export default function Approaches() {
   return (
     <section id="expertise" className={styles.approaches} aria-labelledby="approaches-heading">
       <div className={`container ${styles.approachesInner}`}>
-        <div className={styles.approachesTop}>
+        {/* Heading + list in one column, photo beside the whole block */}
+        <div className={styles.approachesContent}>
           <header className={styles.sectionHead}>
             <p className="eyebrow eyebrow--light" data-reveal>{copy.approaches.eyebrow}</p>
             <h2 id="approaches-heading" data-reveal="words">
@@ -31,27 +32,27 @@ export default function Approaches() {
             </h2>
           </header>
 
-          <figure className={styles.artPhoto} data-reveal>
-            <div className={styles.artPhotoFrame}>
-              <Image src={site.photos.artTherapy.src} alt={site.photos.artTherapy.alt} fill sizes="(max-width: 900px) 80vw, 30vw" />
-            </div>
-            <figcaption>{site.photos.artTherapy.caption}</figcaption>
-          </figure>
+          <ul className={styles.approachList}>
+            {copy.approaches.items.map((item, i) => (
+              <li key={item.title} className={styles.approach} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
+                <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <path d={marks[i % marks.length]} stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <ul className={styles.approachList}>
-          {copy.approaches.items.map((item, i) => (
-            <li key={item.title} className={styles.approach} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
-              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                <path d={marks[i % marks.length]} stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <figure className={styles.artPhoto} data-reveal>
+          <div className={styles.artPhotoFrame}>
+            <Image src={site.photos.artTherapy.src} alt={site.photos.artTherapy.alt} fill sizes="(max-width: 900px) 80vw, 30vw" />
+          </div>
+          <figcaption>{site.photos.artTherapy.caption}</figcaption>
+        </figure>
       </div>
     </section>
   );
