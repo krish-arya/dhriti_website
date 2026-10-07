@@ -48,6 +48,15 @@ export const site = {
       src: "/images/dhriti-campus.jpg",
       alt: "Dhriti Singh standing on a green college campus",
     },
+    artTherapy: {
+      src: "/images/art-therapy.jpg",
+      alt: "Dhriti Singh smiling at a hand-painted peacock coaster beside a table of paints",
+      caption: "In the art space",
+    },
+    sessions: {
+      src: "/images/dhriti-cafe.jpg",
+      alt: "Dhriti Singh in a navy saree in a warm, softly lit café",
+    },
   },
 
   whatsapp: {
@@ -182,6 +191,11 @@ export const copy = {
         src: "/images/workshop-school.jpg",
         alt: "Dhriti Singh at the Peer Educator Programme, Kamal Model Senior Secondary School, New Delhi",
         caption: "Peer Educator Programme · Kamal Model Sr. Sec. School, New Delhi · Dec 2025",
+      },
+      {
+        src: "/images/dhriti-talk.jpg",
+        alt: "Dhriti Singh standing with arms folded in front of a stage screen at an event",
+        caption: "",
       },
     ],
   },

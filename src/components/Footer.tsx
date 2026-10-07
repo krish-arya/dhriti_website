@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerGrid}`}>
         <p className={styles.footerLogo}>
-          <BrandMark /> {site.brand}
+          <BrandMark size={64} /> {site.brand}
         </p>
 
         <div className={styles.footerPerson}>

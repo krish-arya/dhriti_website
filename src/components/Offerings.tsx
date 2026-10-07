@@ -36,7 +36,7 @@ export default function Offerings() {
               <div className={styles.workshopImage}>
                 <Image src={w.src} alt={w.alt} fill sizes="(max-width: 900px) 92vw, 46vw" />
               </div>
-              <figcaption>{w.caption}</figcaption>
+              {w.caption && <figcaption>{w.caption}</figcaption>}
             </figure>
           ))}
         </div>

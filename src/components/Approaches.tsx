@@ -1,4 +1,5 @@
-import { copy } from "@/content/site";
+import Image from "next/image";
+import { copy, site } from "@/content/site";
 import SplitWords from "./SplitWords";
 import styles from "./Sections.module.css";
 
@@ -22,12 +23,21 @@ export default function Approaches() {
   return (
     <section id="expertise" className={styles.approaches} aria-labelledby="approaches-heading">
       <div className={`container ${styles.approachesInner}`}>
-        <header className={styles.sectionHead}>
-          <p className="eyebrow eyebrow--light" data-reveal>{copy.approaches.eyebrow}</p>
-          <h2 id="approaches-heading" data-reveal="words">
-            <SplitWords text={copy.approaches.heading} />
-          </h2>
-        </header>
+        <div className={styles.approachesTop}>
+          <header className={styles.sectionHead}>
+            <p className="eyebrow eyebrow--light" data-reveal>{copy.approaches.eyebrow}</p>
+            <h2 id="approaches-heading" data-reveal="words">
+              <SplitWords text={copy.approaches.heading} />
+            </h2>
+          </header>
+
+          <figure className={styles.artPhoto} data-reveal>
+            <div className={styles.artPhotoFrame}>
+              <Image src={site.photos.artTherapy.src} alt={site.photos.artTherapy.alt} fill sizes="(max-width: 900px) 80vw, 30vw" />
+            </div>
+            <figcaption>{site.photos.artTherapy.caption}</figcaption>
+          </figure>
+        </div>
 
         <ul className={styles.approachList}>
           {copy.approaches.items.map((item, i) => (
