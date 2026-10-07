@@ -4,36 +4,51 @@ import SplitWords from "./SplitWords";
 import styles from "./Sections.module.css";
 
 export default function MeetDhriti() {
+  const a = copy.about;
   return (
     <section id="about" className={`section ${styles.about}`} aria-labelledby="about-heading">
       <div className={`container ${styles.aboutGrid}`}>
-        <div className={styles.aboutPortrait} data-reveal>
-          {/* Same photograph, different crop from the hero */}
-          <DhritiPortrait
-            variant="about"
-            src={site.portrait.src}
-            alt={site.portrait.alt}
-            objectPosition={{ mobile: "50% 30%", desktop: "50% 40%" }}
-            className={styles.drift}
-          />
+        <div className={styles.aboutAside}>
+          <div className={styles.aboutPortrait} data-reveal>
+            <DhritiPortrait
+              variant="about"
+              src={site.photos.about.src}
+              alt={site.photos.about.alt}
+              objectPosition={{ mobile: "50% 20%", desktop: "50% 25%" }}
+              className={styles.drift}
+            />
+            <p className={styles.since} aria-label={`Practising since ${site.practisingSince}`}>
+              <span>Practising since</span>
+              <strong>{site.practisingSince}</strong>
+            </p>
+          </div>
+
+          <div className={styles.qualifications} data-reveal>
+            <h3>{a.qualificationsHeading}</h3>
+            <ul>
+              {site.qualifications.map((q) => (
+                <li key={q.label}>
+                  <span>{q.label}</span>
+                  {q.detail && <small>{q.detail}</small>}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className={styles.aboutCopy}>
-          <p className="eyebrow" data-reveal>{copy.about.eyebrow}</p>
+          <p className="eyebrow" data-reveal>{a.eyebrow}</p>
           <h2 id="about-heading" data-reveal="words">
-            <SplitWords text={copy.about.heading} />
+            <SplitWords text={a.heading} />
           </h2>
-          {copy.about.paragraphs.map((p, i) => (
-            <p key={i} className={i === 0 ? styles.lead : undefined} data-reveal>
+          <p className={styles.lead} data-reveal>
+            {a.lead}
+          </p>
+          {a.paragraphs.map((p, i) => (
+            <p key={i} data-reveal>
               {p}
             </p>
           ))}
-
-          <ul className={styles.credentialList} aria-label="Credentials" data-reveal>
-            {site.credentials.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>

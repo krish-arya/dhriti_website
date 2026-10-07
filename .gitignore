@@ -4,3 +4,6 @@ out
 next-env.d.ts
 *.tsbuildinfo
 .env*.local
+
+# original, unprocessed photos (web-ready copies live in public/images)
+/images/

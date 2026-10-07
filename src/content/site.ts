@@ -2,10 +2,10 @@
  * Site content & configuration.
  *
  * All copy on the website lives here so it can be edited without touching
- * layout code. Copy marked "PLACEHOLDER" is editable starter text — it should
- * be reviewed by Dhriti before launch. Nothing here should state methods,
- * years of experience, research topics or clinical claims that she has not
- * confirmed.
+ * layout code. Biography, credentials, expertise, taglines and offerings come
+ * from material supplied by Dhriti. Lines marked "SITE COPY" were written for
+ * the website (short descriptions, section intros) and are worth a quick
+ * review by her.
  */
 
 export const site = {
@@ -13,7 +13,19 @@ export const site = {
   name: "Dhriti Singh",
 
   /** Short credentials, used in the hero, footer and metadata. */
-  credentials: ["RCI Licensed Psychologist", "PhD Researcher", "Psychologist at MSIT"],
+  credentials: ["RCI Licensed Psychologist", "Certified Art Therapist", "PhD Scholar", "Psychologist at MSIT"],
+
+  /** Full qualifications, shown in the About section. */
+  qualifications: [
+    { label: "RCI Licensed Psychologist", detail: "CRR No. B129294" },
+    { label: "Certified Art Therapist" },
+    { label: "PhD Scholar" },
+    { label: "M.A. Clinical Psychology" },
+    { label: "B.A. Psychology" },
+    { label: "Psychologist", detail: "Maharaja Surajmal Institute of Technology" },
+  ],
+  practisingSince: 2022,
+  rciNumber: "B129294",
 
   instagram: {
     handle: "@innerdoorways",
@@ -22,14 +34,20 @@ export const site = {
     dm: "https://ig.me/m/innerdoorways",
   },
 
-  /**
-   * Portrait. Drop the real photograph at /public/images/dhriti-singh.jpg and
-   * it replaces the placeholder automatically — no layout changes needed.
-   * Set `src` to null to force the placeholder.
-   */
+  /** Photographs. Each is optional — remove a src to show the designed placeholder. */
   portrait: {
     src: "/images/dhriti-singh.jpg" as string | null,
-    alt: "Dhriti Singh, RCI Licensed Psychologist",
+    alt: "Dhriti Singh, RCI Licensed Psychologist, smiling in a white floral outfit beside an olive tree",
+  },
+  photos: {
+    about: {
+      src: "/images/dhriti-singh-about.jpg",
+      alt: "Portrait of Dhriti Singh at Maharaja Surajmal Institute of Technology",
+    },
+    welcome: {
+      src: "/images/dhriti-campus.jpg",
+      alt: "Dhriti Singh standing on a green college campus",
+    },
   },
 
   whatsapp: {
@@ -37,14 +55,16 @@ export const site = {
     display: "+91 88827 43725",
   },
 
+  /** Shown as a contact option. Booking itself goes to WhatsApp unless `booking.url` is set. */
+  email: "dhritisingh2021@gmail.com",
+
   /**
-   * Booking & contact. Without a scheduling link or email, booking and contact
-   * go to WhatsApp. Add a scheduling link (Calendly, Google Form, practice
-   * software…) and/or an email address to switch over.
+   * Booking. Without a scheduling link, "Book a Session" opens WhatsApp with
+   * a short pre-filled message. Add a scheduling link (Calendly, Google Form,
+   * practice software…) to switch over.
    */
   booking: {
     url: null as string | null,
-    email: null as string | null,
   },
 
   /**
@@ -70,49 +90,106 @@ export function whatsappHref(message?: string) {
 
 export function bookingHref() {
   if (site.booking.url) return site.booking.url;
-  if (site.booking.email) return `mailto:${site.booking.email}?subject=${encodeURIComponent("Booking a session")}`;
   return whatsappHref("Hi Dhriti, I'd like to book a session.");
 }
 
 export function contactHref() {
-  if (site.booking.email) return `mailto:${site.booking.email}`;
   return whatsappHref();
+}
+
+export function emailHref() {
+  return `mailto:${site.email}`;
 }
 
 export const copy = {
   hero: {
     eyebrow: "Inner Doorways",
     lines: ["A space to pause.", "A space to understand.", "A space to grow."],
+    tagline: "Where calmness meets clarity — a journey toward inner peace and positive living.",
     cta: "Book a Session",
+  },
+
+  welcome: {
+    eyebrow: "A note before you begin",
+    greeting: "Hello, and welcome to Inner Doorways. 🤍",
+    paragraphs: [
+      "We know that life isn't always easy. Some days are heavy. Some emotions are hard to explain. And sometimes, all we really need is a space where we don't have to pretend we're okay.",
+      "That's why we created Inner Doorways. A place where you're listened to without judgment, understood with compassion, and supported at your own pace.",
+      "Here's to choosing healing over hiding, growth over fear, and kindness toward ourselves.",
+    ],
+    closing: "The door is open. Step in whenever you're ready.",
   },
 
   about: {
     eyebrow: "Meet Dhriti",
-    heading: "Making space for what is within.",
-    // PLACEHOLDER — editable
+    heading: "Hi, I'm Dhriti.",
+    lead: "Life doesn't always need fixing — sometimes it simply needs understanding. I strive to create a space where you feel heard without judgment, understood without assumptions, and supported as you discover what healing looks like for you.",
     paragraphs: [
-      "Dhriti Singh is an RCI Licensed Psychologist, currently pursuing her PhD and working as a psychologist at Maharaja Surajmal Institute of Technology.",
-      "Her work creates a thoughtful, non-judgmental space for individuals navigating questions around relationships, identity, career, childhood and personal growth.",
+      "As an RCI-licensed psychologist, I am deeply committed to fostering mental wellness across the lifespan, with a specialised focus on adult emotional regulation and child development, along with expertise in diagnostic screening. My professional journey is rooted in helping individuals navigate life transitions, manage stress, and cultivate personal growth through evidence-based and mindfulness-oriented approaches.",
+      "With expertise in developmental and behavioural concerns, learning disabilities, and emotional regulation challenges, I integrate therapeutic modalities such as play therapy and expressive arts therapy to create safe, creative, and empowering spaces for healing. I am passionate about nurturing the mental well-being of children, adolescents, and adults alike, and my practice is guided by the belief that every step taken toward inner peace begins with calmness, clarity, and compassionate connection.",
     ],
+    qualificationsHeading: "Qualifications",
   },
 
   areas: {
-    eyebrow: "What we can explore",
+    eyebrow: "Who I work with",
     heading: "There is no single doorway into understanding yourself.",
-    // PLACEHOLDER — editable descriptions
+    intro: "Support for children, adolescents and adults.", // SITE COPY
+    // Areas are drawn from Dhriti's biography; the one-line descriptions are SITE COPY.
     items: [
-      { title: "Relationships", text: "The ways we connect, drift apart and find our way back to the people who matter." },
-      { title: "Identity", text: "Questions of who you are, who you are becoming, and what feels true to you." },
-      { title: "Career", text: "Pressure, direction, doubt — and the search for work that feels like your own." },
-      { title: "Childhood", text: "Understanding how earlier experiences may still be shaping the present." },
-      { title: "Personal growth", text: "Steady, unhurried work towards a life that feels more like yours." },
+      { title: "Emotional regulation", text: "Understanding and steadying emotions that feel overwhelming or hard to name." },
+      { title: "Stress & life transitions", text: "Finding your footing through change, pressure and uncertainty." },
+      { title: "Personal growth", text: "Building calm, clarity and a kinder relationship with yourself." },
+      { title: "Child development", text: "Nurturing children's emotional and developmental needs through play and creative expression." },
+      { title: "Developmental & learning concerns", text: "Behavioural concerns and learning disabilities, with diagnostic screening where it helps." },
+      { title: "Adolescents", text: "A safe space for young people navigating emotions and the pressures of growing up." },
+    ],
+  },
+
+  approaches: {
+    eyebrow: "Expertise",
+    heading: "Evidence-based care, with room for creativity.",
+    // Modalities as listed by Dhriti; the one-line explanations are SITE COPY.
+    items: [
+      { title: "Art Therapy", text: "Using creative expression to explore what can be hard to put into words." },
+      { title: "Mindfulness-Based Therapy", text: "Learning to meet thoughts and feelings with calm, present-moment awareness." },
+      { title: "Dialectical Behaviour Therapy", text: "Skills for managing intense emotions, distress and relationships." },
+      { title: "Cognitive Behavioural Therapy", text: "Noticing and gently reshaping unhelpful patterns of thinking and behaviour." },
+      { title: "Play Therapy for Children", text: "Play is a child's natural language — a safe way to express and process feelings." },
+      { title: "Child & Adolescent Psychotherapy", text: "Therapy shaped around the developmental needs of children and teens." },
+    ],
+  },
+
+  interlude: "Empowering minds to heal and grow — through calmness, clarity, and a deep connection to inner peace.",
+
+  offerings: {
+    eyebrow: "Offerings",
+    heading: "One step closer to inner peace.",
+    intro:
+      "Helping individuals find calm, clarity, and emotional balance through mindful and expressive therapies — and supporting children's growth through play-based approaches and creative expression.",
+    items: [
+      { title: "Therapy Sessions", text: "One-to-one support for children, adolescents and adults, at a pace that feels right for you." }, // SITE COPY
+      { title: "Mental Health Workshops", text: "Sessions for schools, colleges and groups on emotional well-being and adjustment." }, // SITE COPY
+      { title: "Psychological Resources", text: "Reflections and practical guidance, shared regularly on Instagram." }, // SITE COPY
+    ],
+    workshops: [
+      {
+        src: "/images/workshop-college.jpg",
+        alt: "Dhriti Singh presenting a talk on college adjustment to a room of students",
+        caption: "Understanding College Adjustment — a talk for students",
+      },
+      {
+        src: "/images/workshop-school.jpg",
+        alt: "Dhriti Singh at the Peer Educator Programme, Kamal Model Senior Secondary School, New Delhi",
+        caption: "Peer Educator Programme · Kamal Model Sr. Sec. School, New Delhi · Dec 2025",
+      },
     ],
   },
 
   sessions: {
     eyebrow: "How it begins",
     heading: "Opening a conversation.",
-    // PLACEHOLDER — editable
+    // SITE COPY
     steps: [
       { title: "Reach out", text: "Send a message whenever you feel ready. A few words are enough — you don't need to have it all figured out." },
       { title: "A first conversation", text: "A relaxed space to talk about what is bringing you here, and to see whether working together feels right." },
@@ -120,15 +197,12 @@ export const copy = {
     ],
   },
 
-  interlude: "Sometimes the way forward begins by looking inward.",
-
   booking: {
     eyebrow: "Book a session",
     heading: "Whenever you're ready, the door is open.",
-    // PLACEHOLDER — editable
     text: "You don't need the right words to begin. Share as much or as little as you like, and Dhriti will get back to you to find a time.",
-    reassurances: ["No pressure to explain everything at once", "Questions before booking are welcome", "Reply with next steps and availability"],
-    cta: "Book a Session",
+    reassurances: ["No pressure to explain everything at once", "Questions before booking are welcome", "For children, adolescents and adults"],
+    cta: "Book on WhatsApp",
     secondary: "Message on Instagram",
     crisis: {
       heading: "If you need urgent support",

@@ -1,4 +1,4 @@
-import { bookingHref, contactHref, site, whatsappHref } from "@/content/site";
+import { bookingHref, contactHref, emailHref, site, whatsappHref } from "@/content/site";
 import { BrandMark, external } from "./shared";
 import styles from "./Sections.module.css";
 
@@ -17,6 +17,7 @@ export default function Footer() {
           {site.credentials.map((c) => (
             <p key={c}>{c}</p>
           ))}
+          <p>RCI CRR No. {site.rciNumber}</p>
         </div>
 
         <nav aria-label="Footer">
@@ -34,6 +35,9 @@ export default function Footer() {
               <a href={whatsappHref()} target="_blank" rel="noopener noreferrer">
                 WhatsApp · {site.whatsapp.display}
               </a>
+            </li>
+            <li>
+              <a href={emailHref()}>{site.email}</a>
             </li>
           </ul>
         </nav>

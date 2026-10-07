@@ -40,6 +40,7 @@ export default function Hero() {
               </span>
             ))}
           </h1>
+          <p className={styles.tagline}>{copy.hero.tagline}</p>
 
           <div className={styles.identity}>
             <p className={styles.name}>{site.name}</p>
@@ -64,6 +65,8 @@ export default function Hero() {
         </div>
 
         <div className={styles.stage}>
+          {/* A warm terracotta archway behind the portrait — the doorway, felt rather than drawn */}
+          <div className={styles.sun} aria-hidden="true" />
           <HeroAtmosphere />
           <svg className={styles.sprigStatic} viewBox="0 0 80 140" fill="none" aria-hidden="true">
             <path d="M40 138C38 100 42 60 60 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />

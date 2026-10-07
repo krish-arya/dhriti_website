@@ -12,7 +12,7 @@ npm run build && npm start
 
 | What | Where |
 | --- | --- |
-| Dhriti's photograph | Save as `public/images/dhriti-singh.jpg`. It replaces the placeholder automatically. Portrait orientation works best, about 1600px tall. |
+| Photographs | Web-ready copies are in `public/images/` (hero, about, welcome, two workshop photos), set in `src/content/site.ts`. A higher-resolution hero portrait (about 1600px tall) would look sharper on large screens. |
 | Booking link and/or email | `site.booking.url` / `site.booking.email` in `src/content/site.ts`. Until then, "Book a Session" opens WhatsApp (`site.whatsapp`) with a short pre-filled message, and Contact opens WhatsApp. |
 | Music (optional) | On by default: it fades in on the visitor's first click, tap or key press (browsers block sound before that). The *Sitar ambience* button turns it off, and that choice is remembered. Set `site.music.autoplay` to `false` to make it opt-in. By default the music is generated live in the browser (`src/lib/sitarAmbience.ts`). To use a licensed recording, put it in `public/audio/` and set `site.music.src`. |
 | Instagram posts | Add entries to `instagramPosts` in `src/content/site.ts` (up to 6). |

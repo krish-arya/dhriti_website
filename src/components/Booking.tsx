@@ -1,4 +1,4 @@
-import { bookingHref, copy, site, whatsappHref } from "@/content/site";
+import { bookingHref, copy, emailHref, site, whatsappHref } from "@/content/site";
 import { external } from "./shared";
 import SplitWords from "./SplitWords";
 import styles from "./Sections.module.css";
@@ -30,15 +30,13 @@ export default function Booking() {
             {copy.booking.secondary}
           </a>
         </div>
-        {!site.booking.url && !site.booking.email && (
-          <p className={styles.bookingNote} data-reveal>
-            Booking requests are received on WhatsApp at{" "}
-            <a href={whatsappHref()} target="_blank" rel="noopener noreferrer">
-              {site.whatsapp.display}
-            </a>
-            .
-          </p>
-        )}
+        <p className={styles.bookingNote} data-reveal>
+          WhatsApp{" "}
+          <a href={whatsappHref()} target="_blank" rel="noopener noreferrer">
+            {site.whatsapp.display}
+          </a>{" "}
+          · Email <a href={emailHref()}>{site.email}</a>
+        </p>
 
         <aside className={styles.crisis} aria-labelledby="crisis-heading">
           <h3 id="crisis-heading">{copy.booking.crisis.heading}</h3>

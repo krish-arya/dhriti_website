@@ -11,6 +11,7 @@ export default function Areas() {
           <h2 id="areas-heading" data-reveal="words">
             <SplitWords text={copy.areas.heading} />
           </h2>
+          <p className={styles.sectionIntro} data-reveal>{copy.areas.intro}</p>
         </header>
 
         <ul className={styles.areaList}>

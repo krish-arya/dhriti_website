@@ -7,8 +7,8 @@ import styles from "./Header.module.css";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#areas", label: "Areas" },
-  { href: "#sessions", label: "Sessions" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "#offerings", label: "Offerings" },
   { href: "#book", label: "Contact" },
 ];
 
