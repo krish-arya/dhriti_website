@@ -192,11 +192,6 @@ export const copy = {
         alt: "Dhriti Singh at the Peer Educator Programme, Kamal Model Senior Secondary School, New Delhi",
         caption: "Peer Educator Programme · Kamal Model Sr. Sec. School, New Delhi · Dec 2025",
       },
-      {
-        src: "/images/dhriti-talk.jpg",
-        alt: "Dhriti Singh standing with arms folded in front of a stage screen at an event",
-        caption: "",
-      },
     ],
   },
 

@@ -414,7 +414,7 @@
 
 .workshops {
   display: grid;
-  grid-template-columns: 1.35fr 1fr 0.8fr;
+  grid-template-columns: 1.3fr 1fr;
   gap: 1.25rem;
   align-items: end;
 }
@@ -446,13 +446,6 @@
   object-position: 50% 30%;
 }
 
-.workshop:nth-child(3) .workshopImage {
-  aspect-ratio: 3 / 4;
-}
-
-.workshop:nth-child(3) .workshopImage img {
-  object-position: 50% 20%;
-}
 
 .workshop figcaption {
   margin-top: 0.75rem;
@@ -988,11 +981,7 @@
   }
 
   .workshops {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .workshop:first-child {
-    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
   }
 
   .artPhoto {
