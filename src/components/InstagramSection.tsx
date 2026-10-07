@@ -34,13 +34,22 @@ export default function InstagramSection({ posts = instagramPosts }: { posts?: I
           </a>
         </header>
 
-        <ul className={styles.tiles}>
+        <ul className={`${styles.tiles} ${posts.length > 0 ? styles.tilesPosts : ""}`}>
           {posts.length > 0
-            ? posts.slice(0, 6).map((p) => (
-                <li key={p.href} className={styles.tile} data-reveal>
+            ? posts.slice(0, 6).map((p, i) => (
+                <li key={p.href} className={styles.tile} data-reveal style={{ transitionDelay: `${i * 60}ms` }}>
                   <a href={p.href} target="_blank" rel="noopener noreferrer">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={p.image} alt={p.alt} loading="lazy" decoding="async" />
+                    {p.kind === "reel" && (
+                      <span className={styles.reelBadge} aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M8 5.5v13l11-6.5z" />
+                        </svg>
+                        Watch
+                      </span>
+                    )}
+                    <span className="sr-only">(opens on Instagram)</span>
                   </a>
                 </li>
               ))

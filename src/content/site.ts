@@ -234,7 +234,44 @@ export type InstagramPost = {
   href: string;
   image: string;
   alt: string;
-  kind?: "post" | "quote" | "educational" | "photograph" | "reflection";
+  kind?: "post" | "quote" | "educational" | "photograph" | "reflection" | "reel";
 };
 
-export const instagramPosts: InstagramPost[] = [];
+export const instagramPosts: InstagramPost[] = [
+  {
+    href: "https://www.instagram.com/p/DbqYK5vkW7Z/",
+    image: "/images/instagram/safe-place.jpg",
+    alt: "Inner Doorways post: Sometimes, you don't need advice. You need a safe place to be heard.",
+    kind: "quote",
+  },
+  {
+    href: "https://www.instagram.com/p/Dcv5tRapehU/",
+    image: "/images/instagram/first-session.jpg",
+    alt: "Reel: Dhriti Singh explains what happens in your first therapy session",
+    kind: "reel",
+  },
+  {
+    href: "https://www.instagram.com/p/DcqbbwapXW0/",
+    image: "/images/instagram/change-your-thoughts.jpg",
+    alt: "Inner Doorways post: Change your thoughts, change your story — six gentle reframes for unhelpful thoughts",
+    kind: "educational",
+  },
+  {
+    href: "https://www.instagram.com/p/DcVwKFBRhup/",
+    image: "/images/instagram/how-therapy-works.jpg",
+    alt: "Inner Doorways post: how people think therapy works, a straight line, versus how it actually works, with ups and downs",
+    kind: "educational",
+  },
+  {
+    href: "https://www.instagram.com/p/DeKdK5YzLl6/",
+    image: "/images/instagram/anxiety-toolkit.jpg",
+    alt: "Inner Doorways post: Anxiety toolkit — eight ways to support a child with anxiety",
+    kind: "educational",
+  },
+  {
+    href: "https://www.instagram.com/p/Db8DwyVpnoi/",
+    image: "/images/instagram/hi-im-dhriti.jpg",
+    alt: "Reel: Dhriti Singh introduces herself — Hi, I'm Dhriti Singh",
+    kind: "reel",
+  },
+];

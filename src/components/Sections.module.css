@@ -642,6 +642,47 @@
   object-fit: cover;
 }
 
+/* Real posts: bigger tiles so the text in each graphic stays readable */
+.tilesPosts {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.tilesPosts .tile a {
+  border-radius: 18px;
+  background: #fffaf2;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 20px 40px -30px rgba(80, 52, 30, 0.5);
+}
+
+.tilesPosts .tile a::after {
+  opacity: 0.12;
+}
+
+.tilesPosts .tile img {
+  object-position: 50% 15%;
+}
+
+.reelBadge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(46, 40, 34, 0.72);
+  backdrop-filter: blur(6px);
+  color: #fff8ef;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.reelBadge svg {
+  width: 1rem;
+}
+
 .tile_quote a {
   background: linear-gradient(160deg, #e9dcc8, #dfcdb3);
 }
@@ -941,6 +982,10 @@
 @media (max-width: 1000px) {
   .tiles {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tilesPosts {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
