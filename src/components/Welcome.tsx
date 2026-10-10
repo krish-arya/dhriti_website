@@ -1,5 +1,5 @@
 import { copy, site } from "@/content/site";
-import DhritiPortrait from "./DhritiPortrait";
+import Image from "next/image";
 import SplitWords from "./SplitWords";
 import styles from "./Sections.module.css";
 
@@ -9,12 +9,8 @@ export default function Welcome() {
     <section id="welcome" className={`section ${styles.welcome}`} aria-labelledby="welcome-heading">
       <div className={`container ${styles.welcomeGrid}`}>
         <div className={styles.welcomePhoto} data-reveal>
-          <DhritiPortrait
-            variant="editorial"
-            src={site.photos.welcome.src}
-            alt={site.photos.welcome.alt}
-            objectPosition="50% 20%"
-          />
+          {/* The logo, not another photo — the hero already introduces her */}
+          <Image src="/images/logo.png" alt={`${site.brand} logo`} width={320} height={320} className={styles.welcomeLogo} />
         </div>
 
         <div className={styles.letter}>

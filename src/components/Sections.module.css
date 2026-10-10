@@ -45,8 +45,25 @@
   align-items: center;
 }
 
-.teaserGrid .aboutPortrait {
-  justify-self: center;
+.teaserGrid {
+  grid-template-columns: auto minmax(0, 40rem);
+  justify-content: center;
+}
+
+/* Badge sits in the flow here rather than over a photo */
+.since.sinceStatic {
+  position: static;
+  width: clamp(130px, 14vw, 170px);
+}
+
+.since.sinceStatic strong {
+  font-size: 2.1rem;
+}
+
+.welcomeLogo {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 30px rgba(60, 70, 40, 0.25));
 }
 
 /* Workshops invite */

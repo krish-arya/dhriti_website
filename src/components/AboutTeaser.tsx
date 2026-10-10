@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { copy, site } from "@/content/site";
-import DhritiPortrait from "./DhritiPortrait";
 import SplitWords from "./SplitWords";
 import styles from "./Sections.module.css";
 
@@ -9,18 +8,10 @@ export default function AboutTeaser() {
   return (
     <section id="about" className={`section ${styles.about}`} aria-labelledby="about-heading">
       <div className={`container ${styles.teaserGrid}`}>
-        <div className={styles.aboutPortrait} data-reveal>
-          <DhritiPortrait
-            variant="about"
-            src={site.photos.about.src}
-            alt={site.photos.about.alt}
-            objectPosition={{ mobile: "50% 20%", desktop: "50% 25%" }}
-          />
-          <p className={styles.since} aria-label={`Practising since ${site.practisingSince}`}>
-            <span>Practising since</span>
-            <strong>{site.practisingSince}</strong>
-          </p>
-        </div>
+        <p className={`${styles.since} ${styles.sinceStatic}`} aria-label={`Practising since ${site.practisingSince}`} data-reveal>
+          <span>Practising since</span>
+          <strong>{site.practisingSince}</strong>
+        </p>
 
         <div className={styles.aboutCopy}>
           <p className="eyebrow" data-reveal>{copy.about.eyebrow}</p>
