@@ -42,6 +42,7 @@ export default function Hero() {
             ))}
           </h1>
           <p className={styles.tagline}>{copy.hero.tagline}</p>
+          <p className={styles.mode}>{site.sessionMode}</p>
 
           <div className={styles.identity}>
             <p className={styles.name}>{site.name}</p>

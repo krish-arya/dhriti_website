@@ -3,7 +3,8 @@ import PageIntro from "@/components/PageIntro";
 import Workshops from "@/components/Workshops";
 
 export const metadata: Metadata = {
-  title: "Mental Health Workshops for Schools & Colleges",
+  alternates: { canonical: "/workshops" },
+  title: "Mental Health Workshops for Schools & Colleges in Delhi",
   description:
     "Mental health workshops and talks by psychologist Dhriti Singh for schools, colleges and organisations — emotional well-being, stress and adjustment.",
 };

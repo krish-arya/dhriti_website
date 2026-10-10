@@ -5,9 +5,10 @@ import Offerings from "@/components/Offerings";
 import PageIntro from "@/components/PageIntro";
 
 export const metadata: Metadata = {
-  title: "Therapy Services — Art Therapy, CBT, DBT, Mindfulness & Play Therapy",
+  alternates: { canonical: "/services" },
+  title: "Online Therapy — Art Therapy, CBT, DBT, Mindfulness & Play Therapy",
   description:
-    "Therapy for children, adolescents and adults with Dhriti Singh: art therapy, mindfulness-based therapy, DBT, CBT, play therapy and child & adolescent psychotherapy.",
+    "Online therapy for children, adolescents and adults with Delhi-based psychologist Dhriti Singh: art therapy, mindfulness-based therapy, DBT, CBT, play therapy and child & adolescent psychotherapy.",
 };
 
 export default function ServicesPage() {

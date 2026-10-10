@@ -12,6 +12,12 @@ export const site = {
   brand: "Inner Doorways",
   name: "Dhriti Singh",
 
+  /** Public address of the site. Change this when a custom domain is connected. */
+  url: "https://dhriti-website.vercel.app",
+  location: { city: "Delhi", region: "Delhi", country: "IN" },
+  /** How sessions are offered — shown on the site and given to search engines. */
+  sessionMode: "Online sessions · Based in Delhi",
+
   /** Short credentials, used in the hero, footer and metadata. */
   credentials: ["RCI Licensed Psychologist", "Certified Art Therapist", "PhD Scholar", "Psychologist at MSIT"],
 
@@ -210,7 +216,7 @@ export const copy = {
     eyebrow: "Book a session",
     heading: "Whenever you're ready, the door is open.",
     text: "You don't need the right words to begin. Share as much or as little as you like, and Dhriti will get back to you to find a time.",
-    reassurances: ["No pressure to explain everything at once", "Questions before booking are welcome", "For children, adolescents and adults"],
+    reassurances: ["Online sessions, wherever you are", "No pressure to explain everything at once", "For children, adolescents and adults"],
     cta: "Book on WhatsApp",
     secondary: "Message on Instagram",
     crisis: {
