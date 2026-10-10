@@ -3,7 +3,7 @@ import { copy, site } from "@/content/site";
 import SplitWords from "./SplitWords";
 import styles from "./Sections.module.css";
 
-export default function Offerings() {
+export default function Offerings({ showWorkshops = true }: { showWorkshops?: boolean }) {
   const o = copy.offerings;
   return (
     <section id="offerings" className={`section ${styles.offerings}`} aria-labelledby="offerings-heading">
@@ -30,6 +30,7 @@ export default function Offerings() {
           ))}
         </ul>
 
+        {showWorkshops && (
         <div className={styles.workshops}>
           {o.workshops.map((w, i) => (
             <figure key={w.src} className={styles.workshop} data-reveal style={{ transitionDelay: `${i * 120}ms` }}>
@@ -40,6 +41,7 @@ export default function Offerings() {
             </figure>
           ))}
         </div>
+        )}
       </div>
     </section>
   );

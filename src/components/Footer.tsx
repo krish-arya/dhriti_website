@@ -1,10 +1,10 @@
-import { bookingHref, contactHref, emailHref, site, whatsappHref } from "@/content/site";
+import Link from "next/link";
+import { bookingHref, emailHref, site, whatsappHref } from "@/content/site";
 import { BrandMark, external } from "./shared";
 import styles from "./Sections.module.css";
 
 export default function Footer() {
   const book = bookingHref();
-  const contact = contactHref();
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.footerGrid}`}>
@@ -23,13 +23,22 @@ export default function Footer() {
         <nav aria-label="Footer">
           <ul className={styles.footerLinks}>
             <li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="/services">Services</Link>
+            </li>
+            <li>
+              <Link href="/workshops">Workshops</Link>
+            </li>
+            <li>
               <a href={site.instagram.url} target="_blank" rel="noopener noreferrer">Instagram</a>
             </li>
             <li>
               <a href={book} target={external(book)} rel="noopener noreferrer">Book a Session</a>
             </li>
             <li>
-              <a href={contact} target={external(contact)} rel="noopener noreferrer">Contact</a>
+              <Link href="/contact">Contact</Link>
             </li>
             <li>
               <a href={whatsappHref()} target="_blank" rel="noopener noreferrer">

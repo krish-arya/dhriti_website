@@ -164,3 +164,8 @@
     transform: none;
   }
 }
+
+.links a[aria-current="page"] {
+  color: var(--terracotta-deep);
+  background-size: 100% 1px;
+}

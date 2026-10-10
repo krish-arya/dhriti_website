@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
+import AmbientSound from "@/components/AmbientSound";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import RevealObserver from "@/components/RevealObserver";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -20,7 +24,10 @@ const body = DM_Sans({
 const description = `${site.name} — ${site.credentials.join(", ")}. A thoughtful, non-judgmental space to pause, understand and grow.`;
 
 export const metadata: Metadata = {
-  title: `${site.name} · ${site.credentials[0]} | ${site.brand}`,
+  title: {
+    default: `${site.name} · ${site.credentials[0]} | ${site.brand}`,
+    template: `%s | ${site.brand}`,
+  },
   description,
   openGraph: {
     title: `${site.brand} — ${site.name}`,
@@ -40,7 +47,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#main">
           Skip to content
         </a>
-        {children}
+        <Header />
+        <main id="main">{children}</main>
+        <Footer />
+        {/* In the layout so they persist across pages — the music keeps playing on navigation */}
+        <RevealObserver />
+        <AmbientSound />
       </body>
     </html>
   );

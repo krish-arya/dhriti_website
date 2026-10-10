@@ -16,6 +16,64 @@
   color: var(--ink-soft);
 }
 
+/* ---------- Inner page intro ---------- */
+
+.pageIntro {
+  padding-block: clamp(3rem, 7vw, 6rem) clamp(1rem, 2vw, 2rem);
+}
+
+.pageIntro h1 {
+  margin: 1rem 0 0;
+  max-width: 18ch;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.pageLead {
+  margin: 1.5rem 0 0;
+  max-width: 38rem;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+}
+
+/* Home "Meet Dhriti" teaser */
+.teaserGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 7vw, 7rem);
+  align-items: center;
+}
+
+.teaserGrid .aboutPortrait {
+  justify-self: center;
+}
+
+/* Workshops invite */
+.inviteBox {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border-radius: 28px;
+  background: var(--ochre-soft);
+  border: 1px solid color-mix(in srgb, var(--ochre) 35%, transparent);
+}
+
+.inviteBox h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  max-width: 24ch;
+}
+
+.inviteBox p {
+  margin: 0.75rem 0 0;
+  max-width: 34rem;
+  color: var(--ink-soft);
+}
+
 /* ---------- Welcome note ---------- */
 
 .welcome {
@@ -991,6 +1049,7 @@
 
 @media (max-width: 900px) {
   .aboutGrid,
+  .teaserGrid,
   .sessionsGrid {
     grid-template-columns: 1fr;
   }

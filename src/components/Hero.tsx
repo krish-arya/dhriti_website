@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import { bookingHref, copy, site } from "@/content/site";
 import DhritiPortrait from "./DhritiPortrait";
@@ -58,9 +59,9 @@ export default function Hero() {
             <a className="button" href={href} target={external(href)} rel="noopener noreferrer">
               {copy.hero.cta} <span aria-hidden="true">→</span>
             </a>
-            <a className="link-quiet" href="#about">
+            <Link className="link-quiet" href="/about">
               Meet Dhriti
-            </a>
+            </Link>
           </div>
         </div>
 

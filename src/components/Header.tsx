@@ -1,20 +1,23 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { bookingHref, site } from "@/content/site";
 import { BrandMark, external } from "./shared";
 import styles from "./Header.module.css";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#expertise", label: "Expertise" },
-  { href: "#offerings", label: "Offerings" },
-  { href: "#book", label: "Contact" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/workshops", label: "Workshops" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -33,18 +36,18 @@ export default function Header() {
   return (
     <header className={styles.header} data-scrolled={scrolled} data-open={open}>
       <div className={`container ${styles.bar}`}>
-        <a href="#top" className={styles.brand} onClick={() => setOpen(false)}>
+        <Link href="/" className={styles.brand} onClick={() => setOpen(false)}>
           <BrandMark />
           <span>{site.brand}</span>
-        </a>
+        </Link>
 
         <nav className={styles.nav} aria-label="Main">
           <ul id="site-menu" className={styles.links}>
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)}>
+                <Link href={l.href} aria-current={pathname === l.href ? "page" : undefined} onClick={() => setOpen(false)}>
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li className={styles.menuCta}>

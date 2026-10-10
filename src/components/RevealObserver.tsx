@@ -1,16 +1,18 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 /**
  * Adds `data-revealed` to elements marked `data-reveal` as they enter the
- * viewport. Content is fully visible without JS; animation is CSS-only and
- * disabled for visitors who prefer reduced motion.
+ * viewport. Re-scans on every page change. Content is fully visible without
+ * JS; animation is CSS-only and disabled for reduced-motion visitors.
  */
 export default function RevealObserver() {
+  const pathname = usePathname();
+
   useEffect(() => {
     document.documentElement.classList.add("js-reveal");
-    const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -22,8 +24,9 @@ export default function RevealObserver() {
       },
       { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
     );
-    els.forEach((el) => io.observe(el));
+    document.querySelectorAll<HTMLElement>("[data-reveal]:not([data-revealed])").forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [pathname]);
+
   return null;
 }
