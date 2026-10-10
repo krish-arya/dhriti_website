@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
+// Global styles first, so component styles can override them
+import "./globals.css";
 import AmbientSound from "@/components/AmbientSound";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import RevealObserver from "@/components/RevealObserver";
 import { site } from "@/content/site";
-import "./globals.css";
 
 const display = Fraunces({
   subsets: ["latin"],

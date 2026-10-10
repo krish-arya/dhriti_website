@@ -32,6 +32,9 @@ export default function Footer() {
               <Link href="/workshops">Workshops</Link>
             </li>
             <li>
+              <Link href="/stories">Client stories</Link>
+            </li>
+            <li>
               <a href={site.instagram.url} target="_blank" rel="noopener noreferrer">Instagram</a>
             </li>
             <li>

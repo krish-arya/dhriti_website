@@ -1,0 +1,172 @@
+/* ---------- Card ---------- */
+
+.card {
+  --tint: var(--terracotta-soft);
+  --accent: var(--terracotta-deep);
+  break-inside: avoid;
+}
+
+.card[data-topic="students"] {
+  --tint: var(--ochre-soft);
+  --accent: #8a6420;
+}
+
+.card[data-topic="relationships"] {
+  --tint: var(--olive-soft);
+  --accent: var(--olive);
+}
+
+.card[data-topic="transitions"] {
+  --tint: var(--teal-soft);
+  --accent: var(--teal);
+}
+
+.card[data-topic="confidence"] {
+  --tint: #ecd9cf;
+  --accent: #7d4a3a;
+}
+
+.card[data-topic="parents"] {
+  --tint: #e6e2c8;
+  --accent: #6b6630;
+}
+
+.card[data-topic="experience"] {
+  --tint: #efe3d3;
+  --accent: var(--wood);
+}
+
+.card figure {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 2.5rem 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  background: linear-gradient(180deg, var(--tint), color-mix(in srgb, var(--tint) 30%, #fffaf2));
+  border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.mark {
+  position: absolute;
+  top: 0.4rem;
+  left: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.45;
+}
+
+.card blockquote {
+  margin: 0;
+  flex: 1;
+}
+
+.card blockquote p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.card figcaption {
+  margin-top: 1.25rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------- Home teaser ---------- */
+
+.head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.head > div {
+  max-width: 40rem;
+}
+
+.head h2 {
+  margin-top: 1rem;
+}
+
+.note {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+/* ---------- Stories page ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.filters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 42px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--sand);
+  background: #fffaf2;
+  color: var(--ink-soft);
+  font: 500 0.9rem/1 var(--font-body);
+  cursor: pointer;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+}
+
+.filters button span {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.filters button:hover {
+  border-color: var(--terracotta);
+}
+
+.filters button[aria-pressed="true"] {
+  background: var(--terracotta-deep);
+  border-color: var(--terracotta-deep);
+  color: #fff8ef;
+}
+
+/* Masonry-style columns so quotes of different lengths sit naturally */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 3 300px;
+  column-gap: 1.25rem;
+  animation: fade 600ms ease both;
+}
+
+.grid > li {
+  margin-bottom: 1.25rem;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
