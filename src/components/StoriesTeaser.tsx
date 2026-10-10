@@ -26,7 +26,7 @@ export default function StoriesTeaser() {
 
         <Slider label="Client stories" perView={3}>
           {featured.map((t) => (
-            <StoryCard key={t.id} t={t} />
+            <StoryCard key={t.id} t={t} clamp />
           ))}
         </Slider>
       </div>

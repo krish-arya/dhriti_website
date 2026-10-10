@@ -1,9 +1,9 @@
 import type { Testimonial } from "@/content/testimonials";
 import styles from "./Stories.module.css";
 
-export default function StoryCard({ t, as: Tag = "li" }: { t: Testimonial; as?: "li" | "div" }) {
+export default function StoryCard({ t, clamp = false }: { t: Testimonial; clamp?: boolean }) {
   return (
-    <Tag className={styles.card} data-topic={t.topic}>
+    <li className={`${styles.card} ${clamp ? styles.clamp : ""}`} data-topic={t.topic}>
       <figure>
         <span className={styles.mark} aria-hidden="true">
           “
@@ -15,6 +15,6 @@ export default function StoryCard({ t, as: Tag = "li" }: { t: Testimonial; as?: 
           {t.who} · {t.age}
         </figcaption>
       </figure>
-    </Tag>
+    </li>
   );
 }

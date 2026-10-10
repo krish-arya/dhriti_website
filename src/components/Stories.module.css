@@ -1,62 +1,44 @@
-/* ---------- Card ---------- */
+/* ---------- Card: one quiet, paper-like style for every story ---------- */
 
 .card {
-  --tint: var(--terracotta-soft);
-  --accent: var(--terracotta-deep);
+  --dot: var(--terracotta);
   break-inside: avoid;
 }
 
-.card[data-topic="students"] {
-  --tint: var(--ochre-soft);
-  --accent: #8a6420;
-}
-
-.card[data-topic="relationships"] {
-  --tint: var(--olive-soft);
-  --accent: var(--olive);
-}
-
-.card[data-topic="transitions"] {
-  --tint: var(--teal-soft);
-  --accent: var(--teal);
-}
-
-.card[data-topic="confidence"] {
-  --tint: #ecd9cf;
-  --accent: #7d4a3a;
-}
-
-.card[data-topic="parents"] {
-  --tint: #e6e2c8;
-  --accent: #6b6630;
-}
-
-.card[data-topic="experience"] {
-  --tint: #efe3d3;
-  --accent: var(--wood);
-}
+.card[data-topic="students"] { --dot: var(--ochre); }
+.card[data-topic="relationships"] { --dot: var(--olive); }
+.card[data-topic="transitions"] { --dot: var(--teal); }
+.card[data-topic="confidence"] { --dot: #a0614a; }
+.card[data-topic="parents"] { --dot: #8a8440; }
+.card[data-topic="experience"] { --dot: var(--wood); }
 
 .card figure {
-  position: relative;
   height: 100%;
   margin: 0;
-  padding: 2.5rem 1.75rem 1.5rem;
+  padding: clamp(1.75rem, 3vw, 2.25rem);
   display: flex;
   flex-direction: column;
-  border-radius: 22px;
-  background: linear-gradient(180deg, var(--tint), color-mix(in srgb, var(--tint) 30%, #fffaf2));
-  border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent);
+  gap: 1.5rem;
+  border-radius: 20px;
+  background: #fffaf3;
+  border: 1px solid color-mix(in srgb, var(--sand) 55%, transparent);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 18px 40px -36px rgba(80, 52, 30, 0.5);
+  transition: transform 500ms ease, box-shadow 500ms ease;
+}
+
+.card figure:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 26px 44px -34px rgba(80, 52, 30, 0.55);
 }
 
 .mark {
-  position: absolute;
-  top: 0.4rem;
-  left: 1.25rem;
+  display: block;
+  height: 1.4rem;
   font-family: var(--font-display);
-  font-size: 4.5rem;
+  font-size: 3.2rem;
   line-height: 1;
-  color: var(--accent);
-  opacity: 0.45;
+  color: var(--dot);
+  opacity: 0.55;
 }
 
 .card blockquote {
@@ -67,19 +49,35 @@
 .card blockquote p {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--ink);
+  font-size: 1.04rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
 }
 
 .card figcaption {
-  margin-top: 1.25rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--ink-muted);
+}
+
+.card figcaption::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+/* In the home carousel, keep cards an even height */
+.clamp blockquote p {
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ---------- Home teaser ---------- */
@@ -109,55 +107,118 @@
 
 /* ---------- Stories page ---------- */
 
+/* One large featured quote to open the page */
+.featured {
+  position: relative;
+  max-width: 52rem;
+  margin: 0 auto clamp(3.5rem, 7vw, 5.5rem);
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.featured::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid color-mix(in srgb, var(--terracotta) 35%, transparent);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0 / 260px 260px 0 0;
+  pointer-events: none;
+}
+
+.featured blockquote {
+  margin: 0;
+}
+
+.featured p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.featured figcaption {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta-deep);
+}
+
+/* Filters: understated text tabs */
 .filters {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2.5rem;
+  gap: 0.25rem 1.75rem;
+  margin: 0 0 2.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--sand) 70%, transparent);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
 }
 
 .filters button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 42px;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  border: 1px solid var(--sand);
-  background: #fffaf2;
-  color: var(--ink-soft);
-  font: 500 0.9rem/1 var(--font-body);
+  flex: none;
+  position: relative;
+  padding: 0.75rem 0;
+  border: 0;
+  background: none;
+  color: var(--ink-muted);
+  font: 500 0.92rem/1 var(--font-body);
+  white-space: nowrap;
   cursor: pointer;
-  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+  transition: color 250ms ease;
 }
 
-.filters button span {
-  font-size: 0.75rem;
-  opacity: 0.6;
+.filters button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.3rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--terracotta-deep);
+  transform: scaleX(0);
+  transition: transform 350ms ease;
 }
 
 .filters button:hover {
-  border-color: var(--terracotta);
+  color: var(--ink);
 }
 
 .filters button[aria-pressed="true"] {
-  background: var(--terracotta-deep);
-  border-color: var(--terracotta-deep);
-  color: #fff8ef;
+  color: var(--terracotta-deep);
 }
 
-/* Masonry-style columns so quotes of different lengths sit naturally */
+.filters button[aria-pressed="true"]::after {
+  transform: scaleX(1);
+}
+
+.filters button span {
+  margin-left: 0.3rem;
+  font-size: 0.75rem;
+  opacity: 0.55;
+}
+
+/* Two calm columns */
 .grid {
   list-style: none;
   margin: 0;
   padding: 0;
-  columns: 3 300px;
-  column-gap: 1.25rem;
+  columns: 2 340px;
+  column-gap: 1.5rem;
   animation: fade 600ms ease both;
 }
 
 .grid > li {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 @keyframes fade {
