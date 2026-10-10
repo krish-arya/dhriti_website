@@ -1,4 +1,5 @@
 import { copy, instagramPosts, site, type InstagramPost } from "@/content/site";
+import PostCarousel from "./PostCarousel";
 import SplitWords from "./SplitWords";
 import styles from "./Sections.module.css";
 
@@ -34,26 +35,11 @@ export default function InstagramSection({ posts = instagramPosts }: { posts?: I
           </a>
         </header>
 
-        <ul className={`${styles.tiles} ${posts.length > 0 ? styles.tilesPosts : ""}`}>
-          {posts.length > 0
-            ? posts.slice(0, 6).map((p, i) => (
-                <li key={p.href} className={styles.tile} data-reveal style={{ transitionDelay: `${i * 60}ms` }}>
-                  <a href={p.href} target="_blank" rel="noopener noreferrer">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={p.image} alt={p.alt} loading="lazy" decoding="async" />
-                    {p.kind === "reel" && (
-                      <span className={styles.reelBadge} aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M8 5.5v13l11-6.5z" />
-                        </svg>
-                        Watch
-                      </span>
-                    )}
-                    <span className="sr-only">(opens on Instagram)</span>
-                  </a>
-                </li>
-              ))
-            : placeholders.map((p, i) => (
+        {posts.length > 0 ? (
+          <PostCarousel posts={posts.slice(0, 12)} />
+        ) : (
+        <ul className={styles.tiles}>
+          {placeholders.map((p, i) => (
                 <li
                   key={i}
                   className={`${styles.tile} ${styles[`tile_${p.kind}`] ?? ""}`}
@@ -68,6 +54,7 @@ export default function InstagramSection({ posts = instagramPosts }: { posts?: I
                 </li>
               ))}
         </ul>
+        )}
       </div>
     </section>
   );
