@@ -70,8 +70,40 @@ export const testimonials: Testimonial[] = [
   { id: 50, who: "Adult", age: 41, topic: "experience", quote: "I liked that the process did not feel like someone was grading how well I was coping. I could talk about progress one week and feel stuck the next without feeling that I had failed. That made it easier to be honest about what was actually happening. I’ve taken away a few ways of reflecting that I continue to use between difficult moments." },
 ];
 
+/**
+ * One sentence from each of these stories, quoted exactly, for the revolving
+ * ribbon on the home page. The full stories are on /stories.
+ */
+export const ribbonLines: { id: number; line: string }[] = [
+  { id: 46, line: "It was a relief to discover that I could begin with whatever was on my mind that day." },
+  { id: 4, line: "I didn’t need someone to tell me how to live; I needed help hearing myself think." },
+  { id: 24, line: "Sometimes being heard was the first useful step." },
+  { id: 7, line: "I’m still ambitious, just a little less cruel to myself about it." },
+  { id: 36, line: "It was reassuring to acknowledge that care and exhaustion can exist together." },
+  { id: 10, line: "I still get self-doubt, but I don’t take every thought as a fact anymore." },
+  { id: 13, line: "It hasn’t made every conversation comfortable, but it has made them more honest." },
+  { id: 9, line: "I appreciated not being pushed to share more than I was ready to." },
+  { id: 44, line: "I didn’t leave with everything resolved, but I felt less tangled up in it." },
+  { id: 18, line: "Reflecting on this helped me see that care and mind-reading are not the same thing." },
+  { id: 2, line: "It felt less overwhelming than I expected." },
+  { id: 33, line: "I’m learning to pause before responding and to repair things when I don’t get it right." },
+  { id: 12, line: "I’m practising letting a day be a day, rather than treating every hour like a test I might fail." },
+  { id: 6, line: "It was a relief to talk about the things that were difficult without having to prove that they were difficult enough." },
+  { id: 22, line: "I’ve given myself more patience than I used to." },
+  { id: 20, line: "It’s a work in progress, but I feel more connected to my own voice." },
+  { id: 40, line: "I’m working on listening a little longer before offering advice." },
+  { id: 50, line: "I liked that the process did not feel like someone was grading how well I was coping." },
+  { id: 28, line: "I’m trying smaller steps now rather than waiting for the fear to disappear first." },
+  { id: 23, line: "I can care deeply about my family and still need space." },
+  { id: 31, line: "It sounds basic, but noticing the pattern has changed how I talk to myself." },
+  { id: 26, line: "I initially thought therapy was something you sought only when things were falling apart." },
+];
+
 /** A spread across ages and concerns for the home page. */
 export const featuredIds = [46, 2, 32, 15, 6, 34, 10, 26];
 
 export const privacyNote =
   "Shared anonymously. Names and identifying details are withheld to protect client confidentiality. Every person’s experience of therapy is their own.";
+
+/** Short version for badges. */
+export const privacyShort = "Names and identities are hidden to protect every client’s privacy.";

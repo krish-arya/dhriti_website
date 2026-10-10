@@ -1,9 +1,9 @@
 import type { Testimonial } from "@/content/testimonials";
 import styles from "./Stories.module.css";
 
-export default function StoryCard({ t, clamp = false }: { t: Testimonial; clamp?: boolean }) {
+export default function StoryCard({ t }: { t: Testimonial }) {
   return (
-    <li className={`${styles.card} ${clamp ? styles.clamp : ""}`} data-topic={t.topic}>
+    <li className={styles.card} data-topic={t.topic}>
       <figure>
         <span className={styles.mark} aria-hidden="true">
           “

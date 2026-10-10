@@ -4,7 +4,7 @@ import Booking from "@/components/Booking";
 import Hero from "@/components/Hero";
 import InstagramSection from "@/components/InstagramSection";
 import Sessions from "@/components/Sessions";
-import StoriesTeaser from "@/components/StoriesTeaser";
+import StoriesRibbon from "@/components/StoriesRibbon";
 import Welcome from "@/components/Welcome";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       <AboutTeaser />
       <Areas />
       <Sessions />
-      <StoriesTeaser />
+      <StoriesRibbon />
       <InstagramSection />
       <Booking />
     </>

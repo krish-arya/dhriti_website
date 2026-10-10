@@ -1,0 +1,209 @@
+.section {
+  position: relative;
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+  overflow: hidden;
+  scroll-margin-top: 60px;
+}
+
+/* A soft olive wash behind the ribbon */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 32% 0 18%;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--olive-soft) 70%, transparent) 25%, color-mix(in srgb, var(--olive-soft) 70%, transparent) 75%, transparent);
+  z-index: -1;
+}
+
+.head {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.head h2 {
+  margin: 1rem 0 0.75rem;
+}
+
+.count {
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+}
+
+.privacy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.5rem 1rem 0.5rem 0.75rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--teal-soft) 80%, #fff);
+  border: 1px solid color-mix(in srgb, var(--teal) 22%, transparent);
+  color: var(--teal);
+  font-size: 0.86rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.privacy svg {
+  flex: none;
+  width: 1.1rem;
+}
+
+/* ---------- Ribbon ---------- */
+
+.ribbon {
+  --speed: 110s;
+  display: grid;
+  gap: 1.25rem;
+  /* fade at both edges, so cards drift in and out of view */
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.row {
+  display: flex;
+  width: max-content;
+  animation: drift var(--speed) linear infinite;
+}
+
+.reverse {
+  animation-direction: reverse;
+  animation-duration: calc(var(--speed) * 1.15);
+}
+
+.ribbon:hover .row,
+.ribbon:focus-within .row,
+.ribbon[data-paused="true"] .row {
+  animation-play-state: paused;
+}
+
+@keyframes drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.group {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  flex: none;
+  /* spacing lives on each card (not a flex gap) so the two copies tile exactly */
+  margin-right: 1.25rem;
+  width: clamp(260px, 26vw, 360px);
+}
+
+.item figure {
+  height: 100%;
+  margin: 0;
+  padding: 1.5rem 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 20px;
+  background: #fffaf3;
+  border: 1px solid color-mix(in srgb, var(--sand) 55%, transparent);
+  box-shadow: 0 18px 36px -32px rgba(80, 52, 30, 0.55);
+}
+
+.item blockquote {
+  margin: 0;
+}
+
+.item p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.item p::before {
+  content: "“";
+  color: var(--terracotta);
+}
+
+.item p::after {
+  content: "”";
+  color: var(--terracotta);
+}
+
+.item figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.item figcaption::before {
+  content: "";
+  width: 1.25rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+/* ---------- Footer row ---------- */
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.pause {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--sand);
+  background: transparent;
+  color: var(--ink-soft);
+  font: 500 0.88rem/1 var(--font-body);
+  cursor: pointer;
+}
+
+.pause svg {
+  width: 0.95rem;
+}
+
+.pause:hover {
+  border-color: var(--terracotta);
+  color: var(--ink);
+}
+
+/* Reduced motion: no drifting — the rows become gently scrollable instead */
+@media (prefers-reduced-motion: reduce) {
+  .ribbon {
+    mask-image: none;
+  }
+
+  .row {
+    animation: none;
+    width: auto;
+    overflow-x: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .row > ul[aria-hidden] {
+    display: none;
+  }
+
+  .pause {
+    display: none;
+  }
+}
